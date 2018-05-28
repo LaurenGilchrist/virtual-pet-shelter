@@ -1,0 +1,8 @@
+.classpth
+.gradle/
+.project
+.settings/
+bin/
+hunger
+thirst
+boredom
