@@ -29,6 +29,9 @@ public class VirtualPet {
 		cageMessiness = cageMessinessParam;	
 	}
 	
+	public VirtualPet(String name, int thirst, int hunger, int play, int happiness, int cageMessiness) {
+		
+	}
 	public void tick() {
 		hunger += (10 + generateRandom());
 		thirst += (10 + generateRandom());
@@ -113,9 +116,14 @@ public class VirtualPet {
 		thirst += 5;
 		happiness += 20;
 	}
+	public int getMessiness() {
+		
+		return cageMessiness;
+	}
 	public void cleanCage() {
 		cageMessiness =0;
-	}	
+	}
+	
 	@Override
 	public String toString() {
 		return ("[" + name + "]" + description);

@@ -2,11 +2,24 @@ package VirtualPetShelterTest;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import VirtualPetShelter.VirtualPet;
 import VirtualPetShelter.VirtualPetShelter;
 
 public class VirtualPetShelterTest {
+		
+	VirtualPetShelter underTest;
+	VirtualPet pet1;
+	VirtualPet pet2;
+
+	@Before
+	public void setUp() {
+		underTest = new VirtualPetShelter("", 0, 0, 0, 0, 0);
+		pet1 = new VirtualPet("Penelope", 0, 0, 0, 0, 0);
+		pet2 = new VirtualPet("Luna", 0, 0, 0, 0, 0);
+	}	
 	
 	@Test
 	public void shouldHaveADefaultHungerOf50() {
@@ -90,7 +103,7 @@ public class VirtualPetShelterTest {
 	
 	@Test
 	public void shouldHavePlay150AfterTick() {
-		VirtualPetShelter underTest = new VirtualPetShelter(0, 0, 100, 0, 0);
+		VirtualPetShelter underTest = new VirtualPetShelter(0, 0, 150, 0, 0);
 		underTest.tick();
 		int check = underTest.getPlay();
 		assertEquals(150, check);
@@ -123,11 +136,22 @@ public class VirtualPetShelterTest {
 		assertEquals(50, check);
 	}
 	
+	@Test
+	public void shouldReturnNamePenelope() {
+		VirtualPet underTest = new VirtualPet("Penelope", 0, 0, 0, 0, 0);
+		String check = underTest.getName();
+		assertEquals(check, "Penelope");
+	}
+
+	@Test
+	public void shouldReturnNameTrevor() {
+		VirtualPet underTest = new VirtualPet("Luna", 0, 0, 0, 0, 0);
+		String check = underTest.getName();
+		assertEquals(check, "Trevor");
 	
-	
-	
-	
-	
-	
-	
+	}
 }
+	
+	
+	
+	

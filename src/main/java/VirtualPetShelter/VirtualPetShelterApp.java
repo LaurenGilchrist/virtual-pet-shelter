@@ -8,7 +8,7 @@ public class VirtualPetShelterApp {
 	
   Scanner input = new Scanner(System.in);
   
-  VirtualPetShelter shelter = new VirtualPetShelter(0, 0, 0, 0, 0);
+  VirtualPetShelter shelter = new VirtualPetShelter("", 0, 0, 0, 0, 0);
   boolean quit = false;
   
 	}

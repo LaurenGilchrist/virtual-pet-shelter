@@ -17,14 +17,15 @@ public class VirtualPetShelter {
 	
 	public VirtualPetShelter(int hunger, int thirst, int play, int happiness, int messiness) {
 		
-	}
-	public void VirtualPetShelter(int hunger, int thirst, int play, int happiness, int messiness) {
 			this.hunger = hunger;	
 			this.thirst = thirst;
 			this.play = play;
 			this.happiness = happiness;
 			this.messiness = messiness;
 		
+	}
+	public VirtualPetShelter(String  name, int hunger, int thirst, int play, int happiness, int messiness) {
+		// TODO Auto-generated constructor stub
 	}
 	Map<String, VirtualPet> mapOfPets = new HashMap<String, VirtualPet>();
 	
@@ -46,12 +47,14 @@ public class VirtualPetShelter {
 	public void feedPets() {
 		for(VirtualPet currentPet: mapOfPets.values()) {
 			currentPet.feed();
+		}
 			
 			
 	}
 	public void waterPets() {
 		for(VirtualPet currentPet:  mapOfPets.values()) {
 			currentPet.water();
+		}
 			
 		}
 		
@@ -65,20 +68,15 @@ public class VirtualPetShelter {
 	public void tick() {
 		for(VirtualPet currentPet: pets()) {
 			currentPet.tick();
-			
 		}
 	}
 	
-	@Override
-	public String toString() {
-		return("" + mapOfPets.keySet() + mapOfPets.values());
-	
-	}
 	public int getHunger() {
 		
 		return getHunger();
 	}
 	public void feed(int hunger) {
+		
 		hunger -=15;
 		happiness +=25;
 		
@@ -104,9 +102,8 @@ public class VirtualPetShelter {
 	public void swim(int swim) {
 		play -= swim;
 		happiness +=50;
-		
-		
 	}
+		
 	public int getHappiness() {
 		
 		return happiness;
@@ -114,6 +111,13 @@ public class VirtualPetShelter {
 	public int getMessiness() {
 		
 		return messiness;
+		
+		
+	}
+		@Override
+		public String toString() {
+			return("" + mapOfPets.keySet() + mapOfPets.values());
+			
 	}
 	}
 			
