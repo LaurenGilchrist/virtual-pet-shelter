@@ -1,12 +1,33 @@
 package VirtualPetShelter;
 
 import java.util.Collection;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class VirtualPetShelter {
 	
+	private int hunger;
+	private int thirst;
+	private int play;
+	private int happiness;
+	private int messiness;
+	
+	
+	
+	public VirtualPetShelter(int hunger, int thirst, int play, int happiness, int messiness) {
+		
+	}
+	public void VirtualPetShelter(int hunger, int thirst, int play, int happiness, int messiness) {
+			this.hunger = hunger;	
+			this.thirst = thirst;
+			this.play = play;
+			this.happiness = happiness;
+			this.messiness = messiness;
+		
+	}
 	Map<String, VirtualPet> mapOfPets = new HashMap<String, VirtualPet>();
+	
 	public Collection<VirtualPet>pets(){
 		return mapOfPets.values();
 	}
@@ -25,6 +46,7 @@ public class VirtualPetShelter {
 	public void feedPets() {
 		for(VirtualPet currentPet: mapOfPets.values()) {
 			currentPet.feed();
+			
 			
 	}
 	public void waterPets() {
@@ -52,77 +74,53 @@ public class VirtualPetShelter {
 		return("" + mapOfPets.keySet() + mapOfPets.values());
 	
 	}
-	}
-			
-		}
-	
-		
-
-	
-	
-	private int hunger;
-	private int thirst;
-	private int play;
-	private int happiness;
-
-	public VirtualPetShelter(int hunger, int thirst, int play, int happiness) {
-	  this.hunger = hunger;
-	  this.thirst = thirst;
-	  this.play = play;
-	  this.happiness = happiness;
-	  
-	}
-
 	public int getHunger() {
 		
-		return hunger;
+		return getHunger();
 	}
-
-	public void feed(int feed) {
+	public void feed(int hunger) {
 		hunger -=15;
 		happiness +=25;
-	}
-
-	public void tick() {
-		hunger += 15;
-		thirst += 5;
-		play += 50;
-		
 		
 	}
-
-	public void PlayTime(int playtime) {
+	public void PlayTime(int play) {
 		hunger += 25;
 		thirst += 5;
 		happiness +=50;
-		
 	}
-
 	public int getThirst() {
 		
 		return thirst;
 	}
-
+	public void drink(int drink) {
+		thirst-= drink;
+		happiness += 15;
+		
+	}
 	public int getPlay() {
 		
 		return play;
 	}
-
 	public void swim(int swim) {
-		
 		play -= swim;
+		happiness +=50;
+		
 		
 	}
-
 	public int getHappiness() {
 		
 		return happiness;
 	}
-
-	public void drink(int drink) {
-		thirst-=drink;
-		happiness +=15;
+	public int getMessiness() {
 		
+		return messiness;
 	}
+	}
+			
+		
+	
+		
 
-}
+	
+	
+	
