@@ -6,38 +6,56 @@ public class VirtualPet {
 
 	private Random generator = new Random();
 
-	String description;
-	String name;
-	int hunger;
-	int thirst;
-	int play;
-	int happiness;
-	int cageMessiness;
+	
+	private String petName;
+	private int hunger;
+	private int thirst;
+	private int play;
+	private int happiness;
+	private int messiness;
+	private String petDescription;
+	private double randomizedAction;
+	
+	
+	
+	public VirtualPet(String petName, int hunger, int thirst, int play, int happiness, int messiness, double randomizedAction) {
+			this.petName = petName;
+			this.hunger = hunger;	
+			this.thirst = thirst;
+			this.play = play;
+			this.happiness = happiness;
+			this.messiness = messiness;
+			this.randomizedAction = randomizedAction;
+		
+	}
+	
 
 	public VirtualPet(String nameParam, String descriptionParam) {
-		name = nameParam;
-		description = descriptionParam;
-		cageMessiness = 0;	
+		petName = nameParam;
+		petDescription = descriptionParam;
+		messiness = 0;	
 	}
 	public VirtualPet(String nameParam, String descriptionParam, int hungerParam, int thirstParam, int playParam, int happinessParam, int cageMessinessParam) {
-		name = nameParam;
-		description = descriptionParam;
+		petName = nameParam;
+		petDescription = descriptionParam;
 		hunger = hungerParam;
 		thirst = thirstParam;
 		play = playParam;
 		happiness = happinessParam;
-		cageMessiness = cageMessinessParam;	
+		messiness = cageMessinessParam;	
 	}
 	
-	public VirtualPet(String name, int thirst, int hunger, int play, int happiness, int cageMessiness) {
+	public VirtualPet(String name, int hunger, int thirst, int play, int happiness, String petDescription, int messiness) {
 		
 	}
+
+
 	public void tick() {
 		hunger += (10 + generateRandom());
 		thirst += (10 + generateRandom());
 		play += (10 + generateRandom());
 		happiness += (20 + generateRandom());
-		cageMessiness += (5 + generateRandom());
+		messiness += (5 + generateRandom());
 	}
 	
 	public void reset() {
@@ -45,7 +63,7 @@ public class VirtualPet {
 		thirst = 0;
 		play = 0;
 		happiness = 0;
-		cageMessiness = 0;
+		messiness = 0;
 	}
 
 	private int generateRandom() {
@@ -53,11 +71,11 @@ public class VirtualPet {
 		
 	}
 	public String getName() {
-		return name;
+		return petName;
 		
 	}
 	public void rename(String newName) {
-		name = newName;
+		petName = newName;
 	}
 	
 	public int getHunger() {
@@ -75,7 +93,7 @@ public class VirtualPet {
 		hunger = 0;
 		thirst += 10;
 		happiness += 20;
-		cageMessiness += 20;
+		messiness += 20;
 		
 	}
 	public void giveAFish() {
@@ -103,7 +121,7 @@ public class VirtualPet {
 	public void water() {
 		thirst = 0;
 		happiness +=20;
-		cageMessiness +=10;
+		messiness +=10;
 	}
 	public boolean hasDehydrated() {
 		return thirst >=200;
@@ -111,28 +129,69 @@ public class VirtualPet {
 	public int getHappiness() {
 		return happiness;
 	}
-	public void play() {
+	public int getPlay() {
 		hunger += 10;
 		thirst += 5;
-		happiness += 20;
+		return happiness += 20;
 	}
 	public int getMessiness() {
 		
-		return cageMessiness;
+		return messiness;
 	}
 	public void cleanCage() {
-		cageMessiness =0;
+		messiness =0;
 	}
 	
+	public void swim(int swim) {
+		play -= swim;
+		happiness +=50;
+		
+	}
+
+
+	public void feed(int feed) {
+		hunger = 0;
+		thirst += 10;
+		happiness += 20;
+		messiness += 20;
+		
+	}
+
+
+	public void PlayTime(int playtime) {
+		hunger += 10;
+		thirst += 5;
+		happiness += 20;
+		
+	}
+
+
+	public void drink(int drink) {
+		thirst = 0;
+		happiness +=20;
+		messiness +=10;
+		
+	}
+
+
+	public VirtualPet getDescription() {
+		
+		return getDescription;
+	}
+
+
+	public void water(int volume) {
+		if (thirst - volume >= 0) {
+			thirst -= volume;
+		} else {
+			thirst = 0;
+	}
+	}
 	@Override
 	public String toString() {
-		return ("[" + name + "]" + description);
-	}
-	
-	
+		return ("[" + petName + "]" + petDescription);
 		
 	}
-		
-		
+	}
 		
 	
