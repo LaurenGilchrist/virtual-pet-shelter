@@ -1,5 +1,7 @@
 package VirtualPetShelterTest;
 
+import static org.hamcrest.CoreMatchers.is;
+
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -21,152 +23,146 @@ public class VirtualPetShelterTest {
 	@Before
 	public void setUp() {
 		underTest = new VirtualPetShelter();
-		pet1 = new VirtualPet("Penelope", 0, 0, 0, 0, 0, 0);
-		pet2 = new VirtualPet("Luna", 0, 0, 0, 0, 0, 0);
+		pet1 = new VirtualPet("Penelope", 10, 10, 10, 10, 10, 10);
+		pet2 = new VirtualPet("Luna", 10, 10, 10, 10, 10, 10);
 	}	
 	
 	@Test
-	public void shouldHaveADefaultHungerOf50() {
-	VirtualPet underTest = new VirtualPet("", 50, 0, 0, 0, 0, 0);
-	int check = underTest.getHunger();
-	assertEquals(50, check);
+	public void shouldHaveADefaultHungerOf10() {
+	int check = pet1.getHunger();
+	assertEquals(10, check);
+	
 	
 	}
 	
 	@Test
-	public void shouldHaveADefaultHungerOf100() {
-		VirtualPet underTest = new VirtualPet("", 100, 0, 0, 0, 0, 0);
-		int check = underTest.getHunger();
-		assertEquals(100, check);
-	}
-	
-	@Test
-	public void shouldHaveHungerOf35AfterFeedOf15() {
-		VirtualPet underTest = new VirtualPet("", 50, 0, 0, 0, 0, 0);
-		underTest.feed(15);
-		int check = underTest.getHunger();
-		assertEquals(35, check);
+	public void shouldHaveHungerOfAfterFeedOf15() {
+		
+		pet2.feed();
+		int check = pet2.getHunger();
+		assertEquals(0, check);
 		
 	}	
 	
 	@Test
-	public void shouldHaveHungerOf65AfterTick() {
-		VirtualPet underTest = new VirtualPet("", 50, 0, 0, 0, 0, 0);
-		underTest.tick();
-		int check = underTest.getHunger();
-		assertEquals(65, check);
+	public void shouldHaveHungerOf20AfterTick() {
+		
+		pet1.tick();
+		int check = pet1.getHunger();
+		assertEquals(20, check);
 		
 	}
 	
 	@Test
-	public void shouldHaveHungerOf75AfterPlayTime() {
-		VirtualPet underTest = new VirtualPet("",50, 0, 0, 0, 0, 0);
-		underTest.PlayTime(75);
-		int check = underTest.getHunger();
-		assertEquals(75, check);
+	public void shouldHaveHungerOf20AfterPlayTime() {
+		
+		pet1.playTime();
+		int check = pet1.getHunger();
+		assertEquals(20, check);
 		
 	}
 	
 	@Test 
 	public void shouldHaveADefaultThirstOf10() {
-		VirtualPet underTest = new VirtualPet("", 0, 10, 0, 0, 0, 0);
-		int check = underTest.getThirst();
+		
+		int check = pet1.getThirst();
 		assertEquals(10, check);
 	}
 	
 	@Test
-	public void shouldHaveThirstof5AfterDrinkOf5() {
-		VirtualPet underTest = new VirtualPet("", 0, 10, 0, 0, 0, 0);
-		underTest.drink(5);
-		int check = underTest.getThirst();
-		assertEquals(5, check);
+	public void shouldHaveThirstof0AfterDrinkOf() {
+		
+		pet1.drink();
+		int check = pet1.getThirst();
+		assertEquals(0, check);
 		
 	}
 	@Test
-	public void shouldHaveThirstOf15AfterTick() {
-		VirtualPet underTest = new VirtualPet("", 0, 10, 0, 0, 0, 0);
-		underTest.tick();
-		int check = underTest.getThirst();
-		assertEquals(15, check);
+	public void shouldHaveThirstOf20AfterTick() {
+		
+		pet1.tick();
+		int check = pet1.getThirst();
+		assertEquals(20, check);
 	}
 	
 	@Test
-	public void shouldHaveDefaultPlayOf100() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 100, 0, 0, 0);
-		int check = underTest.getPlay();
-		assertEquals(100, check);
+	public void shouldHaveDefaultPlayOf10() {
+		
+		int check = pet1.getPlay();
+		assertEquals(10, check);
 		
 	}
 	@Test
-	public void shouldHavePlayof50AfterSwimOf50() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 100, 0, 0, 0);
-		underTest.swim(50);
-		int check = underTest.getPlay();
-		assertEquals(50, check);
+	public void shouldHavePlayof20AfterSwimOf() {
+		
+		pet1.swim();
+		int check = pet1.getPlay();
+		assertEquals(0, check);
 	}
 	
 	@Test
-	public void shouldHavePlay150AfterTick() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 150, 0, 0, 0);
-		underTest.tick();
-		int check = underTest.getPlay();
-		assertEquals(150, check);
+	public void shouldHavePlay20AfterTick() {
+		
+		pet1.tick();
+		int check = pet1.getPlay();
+		assertEquals(20, check);
 	}
 	
 	@Test
-	public void shouldHaveDefaultHappinessOf50() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 0, 50, 0, 0);
-		int check = underTest.getHappiness();
-		assertEquals(50, check);
+	public void shouldHaveDefaultHappinessOf10() {
+		
+		int check = pet1.getHappiness();
+		assertEquals(10, check);
 	}
 	
 	@Test
-	public void shouldHaveHappinessOf100AfterDrink() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 0, 100, 0, 0);
-		int check = underTest.getHappiness();
-		assertEquals(100, check);
+	public void shouldHaveHappinessOf20AfterDrink() {
+		pet1.drink();
+		int check = pet1.getHappiness();
+		assertEquals(20, check);
 		
 	}
 	@Test 
-	public void shouldHaveHappinessOf150AfterSwim() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 0, 150, 0, 0);
-		int check = underTest.getHappiness();
-		assertEquals(150, check);
+	public void shouldHaveHappinessOf20AfterSwim() {
+		pet1.swim();
+		int check = pet1.getHappiness();
+		assertEquals(60, check);
 	}
 	@Test
-	public void shouldHaveDefaultMessinessOF50() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 0, 0, 50, 0);
-		int check = underTest.getMessiness();
-		assertEquals(50, check);
+	public void shouldHaveDefaultMessinessOF10() {
+		
+		int check = pet1.getMessiness();
+		assertEquals(10, check);
 	}
 	
 	@Test
 	public void shouldReturnNamePenelope() {
-		VirtualPet underTest = new VirtualPet("Penelope", 0, 0, 0, 0, 0, 0);
-		String check = underTest.getName();
+		
+		String check = pet1.getName();
 		assertEquals("Penelope", check);
 	}
 
 	@Test
 	public void shouldReturnNameLuna() {
-		VirtualPet underTest = new VirtualPet("Luna", 0, 0, 0, 0, 0, 0);
-		String check = underTest.getName();
+		
+		String check = pet2.getName();
 		assertEquals("Luna", check);
 	}	
 		
 	@Test
 	public void shouldReturnDescriptionOfLovesToEatAndPlay() {
-		VirtualPet underTest = new VirtualPet("", 0, 0, 0, 0, "Loves to eat and play!", 0);
-		String check = underTest.getDescription();
-		assertEquals("Loves to play!", check);
+		
+		String check = pet1.getDescription();
+		assertEquals("Loves to eat and play!", check);
 	
 	}
 	@Test
 	public void shouldBeAbleToAddPet() {
 		underTest.add(pet1);
 		VirtualPet check = underTest.getPet("Penelope");
-		assertEquals((pet1), check);
+		assertThat(pet1, is(pet1));
 	}
+
 
 	@Test
 	public void shouldBeAbleToAddTwoPets() {
@@ -178,64 +174,61 @@ public class VirtualPetShelterTest {
 	}
 	
 	@Test
-	public void shouldHaveHungerOf30() {
+	public void shouldHaveHungerOf0AfterAdding() {
 		VirtualPet newPet = new VirtualPet("Penelope", "Loves to eat and play!");
 		int checkHunger = newPet.getHunger();
-		assertEquals((30), checkHunger);
+		assertEquals(checkHunger, 0);
 	}
 	
 	@Test
-	public void shouldHaveThirstOf30AfterAdding() {
+	public void shouldHaveThirstOf0AfterAdding() {
 		VirtualPet newPet = new VirtualPet("Penelope", "Loves to eat and play!");
 		underTest.add(newPet);
 		VirtualPet check = underTest.getPet("Penelope");
-		int checkThirst = check.getThirst();
-		assertEquals((30), checkThirst);
+		int checkThirst = newPet.getThirst();
+		assertEquals(0, checkThirst);
 	}
 	
 	@Test
-	public void allPetsShouldHaveHungerOf0AfterFeeding() {
-		VirtualPet pet1 = new VirtualPet("Penelope", 100, 10, 100, 50, "Loves to eat and play!", 50);
-		VirtualPet pet2 = new VirtualPet("Luna", 100, 10, 100, 50, "She is a trickster!", 50);
-		underTest.add(pet1);
-		underTest.add(pet2);
+	public void allPetsShouldHaveHungerOf10AfterFeeding() {
+		
+		underTest.intake(pet1);
+		underTest.intake(pet2);
 		underTest.feedAllPets();
 		VirtualPet check1 = underTest.getPet("Penelope");
 		VirtualPet check2 = underTest.getPet("Luna");
 		int checkHunger1 = check1.getHunger();
 		int checkHunger2 = check2.getHunger();
-		assertEquals((0), checkHunger1);
-		assertEquals((0), checkHunger2);
+		assertEquals(checkHunger1, 10);
+		assertEquals(checkHunger2, 10);
 	}
 	
 	@Test
-	public void allPetsShouldHaveThirstOf0AfterWatering() {
-		VirtualPet pet1 = new VirtualPet("Penelope", 100, 10, 100, 50, "Loves to eat and play!", 50);
-		VirtualPet pet2 = new VirtualPet("Luna", 100, 10, 100, 50, "She is a trickster!", 50);
-		underTest.add(pet1);
-		underTest.add(pet2);
-		underTest.waterAllPets();
+	public void allPetsShouldHaveThirstOf10AfterWatering() {
+		
+		underTest.intake(pet1);
+		underTest.intake(pet2);
+		underTest.wateringAllPets();
 		VirtualPet check1 = underTest.getPet("Penelope");
 		VirtualPet check2 = underTest.getPet("Luna");
 		int checkThirst1 = check1.getThirst();
 		int checkThirst2 = check2.getThirst();
-		assertEquals(0, checkThirst1);
-		assertEquals(0, checkThirst2);
+		assertEquals(checkThirst1, 10);
+		assertEquals(checkThirst2, 10);
 	}
 	
 	@Test
-	public void allPetsShouldHaveHungerOf40AfterTick() {
-		VirtualPet pet1 = new VirtualPet("Penelope", 30, 10, 100, 50, "Loves to eat and play!", 50);
-		VirtualPet pet2 = new VirtualPet("Luna", 30, 10, 100, 50, "She is a trickster", 50);
-		underTest.add(pet1);
-		underTest.add(pet2);
+	public void allPetsShouldHaveHungerOf20AfterTick() {
+		
+		underTest.intake(pet1);
+		underTest.intake(pet2);
 		underTest.tick();
 		VirtualPet check1 = underTest.getPet("Penelope");
 		VirtualPet check2 = underTest.getPet("Luna");
 		int checkHunger1 = check1.getHunger();
 		int checkHunger2 = check2.getHunger();
-		assertEquals((40), checkHunger1);
-		assertEquals((40), checkHunger2);
+		assertEquals((20), checkHunger1);
+		assertEquals((20), checkHunger2);
 	}
 	
 	@Test

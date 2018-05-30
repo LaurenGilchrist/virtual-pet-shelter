@@ -51,11 +51,11 @@ public class VirtualPet {
 
 
 	public void tick() {
-		hunger += (10 + generateRandom());
-		thirst += (10 + generateRandom());
-		play += (10 + generateRandom());
-		happiness += (20 + generateRandom());
-		messiness += (5 + generateRandom());
+		hunger += 10;
+		thirst += 10;
+		play += 10;
+		happiness += 20;
+		messiness += 5;
 	}
 	
 	public void reset() {
@@ -118,7 +118,7 @@ public class VirtualPet {
 		return thirst >=100;
 		
 	}
-	public void water() {
+	public void watering() {
 		thirst = 0;
 		happiness +=20;
 		messiness +=10;
@@ -130,9 +130,8 @@ public class VirtualPet {
 		return happiness;
 	}
 	public int getPlay() {
-		hunger += 10;
-		thirst += 5;
-		return happiness += 20;
+		
+		return play;
 	}
 	public int getMessiness() {
 		
@@ -142,23 +141,16 @@ public class VirtualPet {
 		messiness =0;
 	}
 	
-	public void swim(int swim) {
-		play -= swim;
+	public void swim() {
+		play -=  10;
 		happiness +=50;
 		
-	}
-
-
-	public void feed(int feed) {
-		hunger = 0;
-		thirst += 10;
-		happiness += 20;
-		messiness += 20;
+	
 		
 	}
 
 
-	public void PlayTime(int playtime) {
+	public void playTime() {
 		hunger += 10;
 		thirst += 5;
 		happiness += 20;
@@ -166,17 +158,17 @@ public class VirtualPet {
 	}
 
 
-	public void drink(int drink) {
+	public void drink() {
 		thirst = 0;
-		happiness +=20;
+		happiness +=10;
 		messiness +=10;
 		
 	}
 
 
-	public VirtualPet getDescription() {
-		
-		return getDescription;
+	public String getDescription() {
+		petDescription = "Loves to eat and play!";
+		return petDescription;
 	}
 
 

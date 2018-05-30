@@ -8,7 +8,7 @@ import java.util.Map;
 public class VirtualPetShelter {
 
 	Map<String, VirtualPet> mapOfPets = new HashMap<String, VirtualPet>();
-	private Map<String, VirtualPet> pets;
+	Map<String, VirtualPet> pets = new HashMap<String, VirtualPet>();
 
 	public Collection<VirtualPet> pets() {
 		return mapOfPets.values();
@@ -32,26 +32,21 @@ public class VirtualPetShelter {
 	public void feedPets() {
 		for (VirtualPet currentPet : mapOfPets.values()) {
 			currentPet.feed();
+			
 		}
 
 	}
 
-	public void waterPets() {
+	public void wateringPets() {
 		for (VirtualPet currentPet : mapOfPets.values()) {
-			currentPet.water();
+			currentPet.watering();
+			return;
 		}
 
 	}
 
 	public void playWith(String name) {
 		getPet(name).getPlay();
-	}
-	public void play(int time) {
-		if ( time - time >= 0) {
-			time -= time;
-		} else {
-			time = 0;
-		}
 	}
 
 	public void cleanCage(String name) {
@@ -65,11 +60,6 @@ public class VirtualPetShelter {
 		}
 	}
 
-	public int getHunger() {
-
-		return getHunger();
-	}
-
 	public void add(VirtualPet virtualPet) {
 		pets.put(virtualPet.getName(), virtualPet);
 
@@ -78,65 +68,57 @@ public class VirtualPetShelter {
 	public void feedAllPets() {
 		Collection<VirtualPet> feedingPets = pets.values();
 		for (VirtualPet pet : feedingPets) {
-			pet.feed(100);
+			pet.feed();
+		}
 	}
-	}
-	public void waterAllPets() {
+
+	public void wateringAllPets() {
 		Collection<VirtualPet> wateringPets = pets.values();
 		for (VirtualPet pet : wateringPets) {
-			pet.water(100);
-			
+			pet.watering();
+
 		}
 	}
+
 	public Collection<VirtualPet> getAllPets() {
-				
+
 		return pets.values();
 	}
-			
+
 	public void remove(VirtualPet pet) {
-			pets.remove(pet.getName());
-		}
+		pets.remove(pet.getName());
+	}
 
-
-    public void displayAllPets() {
-            System.out.println("Name" + "\t\t" + "Hunger" + "\t" + "Thirst" + "\t" + "Happiness");
-    		Collection<VirtualPet> displayPets = pets.values();
-    		for (VirtualPet pet : displayPets) {
-    			System.out.println(
-    					pet.getName() + "\t\t" + pet.getHunger() + "\t" + pet.getThirst() + "\t" + pet.getHappiness());
-    		}
-    	}
-
-    	public void displayAllPetDescriptions() {
-    		System.out.println("Name" + "\t\t" + "Description");
-    		Collection<VirtualPet> displayPets = pets.values();
-    		for (VirtualPet pet : displayPets) {
-    			System.out.println(pet.getName() + "\t\t" + pet.getDescription());
-    		}
-    	}
-
-    	public boolean checkPetName(String enteredName) {
-    		Collection<VirtualPet> petNames = pets.values();
-    		for (VirtualPet pet : petNames) {
-    		if (pet.getName().equals(enteredName)) {
-			return true;
+	public void displayAllPets() {
+		System.out.println("Name" + "\t\t" + "Hunger" + "\t" + "Thirst" + "\t" + "Happiness");
+		Collection<VirtualPet> displayPets = pets.values();
+		for (VirtualPet pet : displayPets) {
+			System.out.println(
+					pet.getName() + "\t\t" + pet.getHunger() + "\t" + pet.getThirst() + "\t" + pet.getHappiness());
 		}
 	}
-    		return false;
+
+	public void displayAllPetDescriptions() {
+		System.out.println("Name" + "\t\t" + "Description");
+		Collection<VirtualPet> displayPets = pets.values();
+		for (VirtualPet pet : displayPets) {
+			System.out.println(pet.getName() + "\t\t" + pet.getDescription());
+		}
+	}
+
+	public boolean checkPetName(String enteredName) {
+		Collection<VirtualPet> petNames = pets.values();
+		for (VirtualPet pet : petNames) {
+			if (pet.getName().equals(enteredName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public VirtualPet getName() {
+
+		return getName();
+	}
+
 }
-    	public VirtualPet getName() {
-    		
-    		return getName();
-    	}
-    	
-	@Override
-	public String toString() {
-		return ("" + mapOfPets.keySet() + mapOfPets.values());
-
-	}
-
-
-		
-	}
-
-
